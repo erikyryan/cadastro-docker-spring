@@ -1,17 +1,23 @@
-package br.com.cadastro.entitys;
+package br.com.cadastro.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import br.com.cadastro.entitys.enums.TipoPessoa;
+import br.com.cadastro.domain.enums.TipoPessoa;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
-public class Pessoa {
-	
+@Entity
+public class Pessoa implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
@@ -29,4 +35,7 @@ public class Pessoa {
 		this.telefone = telefone;
 	}
 
+	public Pessoa() {
+
+	}
 }

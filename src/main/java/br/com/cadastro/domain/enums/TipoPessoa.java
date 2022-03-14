@@ -1,7 +1,6 @@
-package br.com.cadastro.entitys.enums;
+package br.com.cadastro.domain.enums;
 
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 public enum TipoPessoa {
