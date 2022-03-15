@@ -1,4 +1,4 @@
-package br.com.cadastro.domain.enums;
+package br.com.cadastro.model.enums;
 
 import lombok.Getter;
 
@@ -17,6 +17,19 @@ public enum TipoPessoa {
 	}
 
 	public static TipoPessoa toEnum(String tipoDocumento) {
+		if(tipoDocumento == null) {
+			return null;
+		}
+
+		for(TipoPessoa x : TipoPessoa.values()) {
+			if(tipoDocumento.equals(x.getTipoDocumento())) {
+				return x;
+			}
+		}
+		throw new IllegalArgumentException("Id invalido: " + tipoDocumento);
+	}
+
+	public static TipoPessoa toEnum(Integer tipoDocumento) {
 		if(tipoDocumento == null) {
 			return null;
 		}
